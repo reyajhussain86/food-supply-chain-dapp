@@ -1,0 +1,41 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "D:\\New folder (2)\\food-supply-chain-dapp\\contracts\\FoodSupplyChain.sol": {
+      "lastModificationDate": 1777541211797,
+      "contentHash": "ff41dd173d96f89553bbd30c46bc5917",
+      "sourceName": "contracts/FoodSupplyChain.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "FoodSupplyChain"
+      ]
+    }
+  }
+}

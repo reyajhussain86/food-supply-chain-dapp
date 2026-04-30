@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Supply Chain Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient-bg" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <header class="app-header">
+      <div class="hero-copy">
+        <p class="eyebrow">Hybrid Ethereum DApp</p>
+        <h1>Food Supply Chain Tracker</h1>
+        <p class="subtitle">Farm to fork product traceability with immutable blockchain audit records.</p>
+      </div>
+      <div class="wallet-panel">
+        <div class="status-row">
+          <span id="chainStatus" class="status-dot pending"></span>
+          <span id="chainText">Checking blockchain</span>
+        </div>
+        <button id="connectWalletBtn" class="primary-btn" type="button">Connect MetaMask</button>
+        <span id="walletAddress" class="wallet-address">Wallet not connected</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="summary-grid" aria-label="Dashboard summary">
+        <article class="summary-card">
+          <span>Total Products</span>
+          <strong id="totalProducts">0</strong>
+        </article>
+        <article class="summary-card">
+          <span>Latest Stage</span>
+          <strong id="latestStage">None</strong>
+        </article>
+        <article class="summary-card">
+          <span>Network Block</span>
+          <strong id="blockNumber">-</strong>
+        </article>
+      </section>
+
+      <section class="pipeline-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Live Journey Model</p>
+            <h2>Supply Chain Pipeline</h2>
+          </div>
+          <button id="refreshBtn" class="ghost-btn" type="button">Refresh</button>
+        </div>
+        <div id="globalPipeline" class="pipeline"></div>
+      </section>
+
+      <section class="workbench">
+        <div class="panel products-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Dashboard</p>
+              <h2>Registered Products</h2>
+            </div>
+          </div>
+          <div id="productsList" class="products-list"></div>
+        </div>
+
+        <div class="forms-column">
+          <form id="addProductForm" class="panel form-panel">
+            <p class="eyebrow">Farmer</p>
+            <h2>Add Product</h2>
+            <label>
+              <span>🌾 Product Name</span>
+              <input id="productName" type="text" required placeholder="Organic Apples" />
+            </label>
+            <label>
+              <span>📍 Origin / Farm Location</span>
+              <input id="origin" type="text" required placeholder="Kent Farm, UK" />
+            </label>
+            <label>
+              <span>🪪 Farmer ID</span>
+              <input id="farmerId" type="text" required placeholder="FARMER-001" />
+            </label>
+            <button class="primary-btn full" type="submit">Register on Blockchain</button>
+          </form>
+
+          <form id="updateStageForm" class="panel form-panel">
+            <p class="eyebrow">Supply Chain Actor</p>
+            <h2>Update Stage</h2>
+            <label>
+              <span>🔎 Product ID</span>
+              <input id="updateProductId" type="number" min="1" required placeholder="1" />
+            </label>
+            <label>
+              <span>⚙️ New Stage</span>
+              <select id="newStage" required>
+                <option value="1">Processing - Processor</option>
+                <option value="2">Warehouse - Warehouse Manager</option>
+                <option value="3">Delivery - Delivery Driver</option>
+                <option value="4">Supermarket - Supermarket Manager</option>
+                <option value="5">Sold - Customer</option>
+              </select>
+            </label>
+            <label>
+              <span>📍 Location</span>
+              <input id="stageLocation" type="text" required placeholder="London Processing Plant" />
+            </label>
+            <label>
+              <span>👤 Actor Name</span>
+              <input id="actorName" type="text" required placeholder="UEL Foods Ltd" />
+            </label>
+            <button class="primary-btn full" type="submit">Update Blockchain Stage</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="tracking-grid">
+        <form id="trackForm" class="panel track-panel">
+          <p class="eyebrow">Track Product</p>
+          <h2>Search Product Journey</h2>
+          <div class="inline-form">
+            <input id="trackProductId" type="number" min="1" required placeholder="Enter product ID" />
+            <button class="primary-btn" type="submit">Track</button>
+          </div>
+          <div id="trackResult" class="track-result"></div>
+        </form>
+
+        <section class="panel history-panel">
+          <p class="eyebrow">History / Audit</p>
+          <h2>Immutable Timeline</h2>
+          <div id="historyList" class="history-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

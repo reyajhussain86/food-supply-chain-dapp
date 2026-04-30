@@ -1,0 +1,39 @@
+{
+  "name": "food-supply-chain-dapp",
+  "version": "1.0.0",
+  "description": "Hybrid DApp for tracking food products through a farm-to-fork supply chain on Ethereum Sepolia.",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "blockchain",
+    "dapp",
+    "ethereum",
+    "solidity",
+    "supply-chain",
+    "express"
+  ],
+  "author": "BSc Computer Science Coursework",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "ethers": "^6.13.5",
+    "express": "^4.21.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "hardhat": "^2.22.17",
+    "nodemon": "^3.1.9"
+  }
+}
