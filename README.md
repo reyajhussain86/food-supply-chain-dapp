@@ -171,7 +171,7 @@ The repository is ready to push to GitHub:
 ```bash
 git init
 git add .
-git commit -m "Initial food supply chain dapp"
+git commit -m "All files uploaded"
 git branch -M main
 git remote add origin YOUR_GITHUB_REPOSITORY_URL
 git push -u origin main
